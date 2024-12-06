@@ -1,111 +1,75 @@
-#include <stdio.h>
-#define size 3
-
-int stack[size];
+#include<stdio.h>
 int top = -1;
-
-int isFull();
-int isEmpty();
-void push();
-void pop();
-void display();
-
-int main(){
-    int choice, option = 1;
-    printf ("Stack Operation:\n");
-    while (option)
+int stack[5];
+int isFull(){
+    if (top==4)
     {
-        printf ("1. Push\n");
-        printf ("2. Pop\n");
-        printf ("3. Display\n");
-        printf ("4. Exit");
-        
-        printf ("Enter your choice: ");
-        scanf    ("%d", &choice);
-        switch (choice)
-        {
-        case 1:
-            push();
-            break;
-        case 2:
-            pop();
-            break;
-        case 3:
-            display();
-            break;
-        case 4:
-            return 0;
-        }
-        fflush (stdin);
-        printf ("Do you want to continue(Type 0 or 1)? : ");
-        scanf    ("%d", &option);
-    }
-    return 0;
-}
-
-int isFull (){
-    if(top==size-1){
         return 1;
     }
-    else{
+    else
+    {
         return 0;
     }
 }
-
 int isEmpty(){
-    if(top==-1){
+    if(top == -1)
+    {
         return 1;
     }
-    else{
-        return 0; 
+    else
+    {
+        return 0;
     }
 }
-
-void push ()
-{
-    int data;
+void push(int data){
     if (isFull())
     {
-        printf ("Stack is OverFlow.\n");
+        printf("Stack Overflow!\n");
         return;
     }
-    else
-    {
-        printf ("Enter the element to be pushed: ");
-        scanf ("%d", &data);
-        top ++;
-        stack[top] = data;
-    }
-}
 
-void pop (){
-    if (isEmpty())
-    {
-        printf ("Stack is Empty.\n");
+    top = top+1;
+    stack[top] = data;
+}
+void pop(){
+    if(isEmpty()) {
+        printf("Stack is empty!\n");
         return;
     }
-    else
+    printf("Popped: %d\n",stack[top]);
+    top=top-1;
+}
+void print(){
+    if(isEmpty())
     {
-        printf ("poped element is = %d\n", stack[top]);
-        top--;
+        printf("Empty Stack");
+        return;
+    }
+    printf("Your Current Stack:\n");
+    for(int i=top;i>=0;i--)
+    {
+        printf("%d\n", stack[i]);
     }
 }
-
-void display ()
+int main()
 {
-    int i;
-    if (isEmpty())
-    {
-        printf ("Stack is empty.\n");
-        return;
-    }
-    else
-    {
-        printf ("\nStack element are:\n");
-        for (i = top; i >= 0; i--)
-        {
-            printf ("%d\n", stack[i]);
-        }
-    }
-    printf ("\n");
+    push(1);
+    push(2);
+    push(3);
+    push(4);
+    push(5);
+    print();
+    pop();
+    print();
+    pop();
+    print();
+    push(6);
+    print();
+    pop();
+    pop();
+    pop();
+    pop();
+    print();
+  
+return 0;
 }
