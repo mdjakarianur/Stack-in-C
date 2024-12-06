@@ -53,14 +53,10 @@ void display(){
         printf("%d\n", stack[i]);
     }
 }
-int main()
-{
-
-    int option = 1;
-    while (option)
-    {
+int main(){
+    int choice;
+    while (1){
         printf ("\nStack Operation\n");
-        int choice;
         printf ("1. Push\n");
         printf ("2. Pop\n");
         printf ("3. Display\n");
