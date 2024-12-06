@@ -57,16 +57,16 @@ int main()
 {
 
     int option = 1;
-    printf ("\n\n *** Stack Operation ***\n\n");
     while (option)
     {
+        printf ("\nStack Operation\n");
         int choice;
         printf ("1. Push\n");
         printf ("2. Pop\n");
         printf ("3. Display\n");
         printf ("4. Exit\n");
 
-        printf ("\nEnter your choice: ");
+        printf ("Enter your choice: ");
         scanf   ("%d", &choice);
 
         switch (choice)
@@ -83,12 +83,6 @@ int main()
         case 4:
             return 1;
         }
-
-        fflush (stdin);
-
-        printf ("\nDo you want to continue(Type 1/0)? : ");
-        scanf    ("%d", &option);
     }
-
 return 0;
 }
