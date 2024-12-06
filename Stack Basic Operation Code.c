@@ -5,29 +5,24 @@ int top = -1;
 int stack[100];
 
 int full(){
-    if (top==99)
-    {
+    if (top==99){
         return 1;
     }
-    else
-    {
+    else{
         return 0;
     }
 }
 int empty(){
-    if(top == -1)
-    {
+    if(top == -1){
         return 1;
     }
-    else
-    {
+    else{
         return 0;
     }
 }
 void push(){
     int value;
-    if (full())
-    {
+    if (full()){
         printf("\nStack Overflow!\n");
         return;
     }
@@ -86,7 +81,7 @@ int main()
             display();
             break;
         case 4:
-            return;
+            return 1;
         }
 
         fflush (stdin);
