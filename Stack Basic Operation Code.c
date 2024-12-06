@@ -4,7 +4,7 @@
 int top = -1;
 int stack[100];
 
-int full(){
+int isFull(){
     if (top==99){
         return 1;
     }
@@ -12,7 +12,7 @@ int full(){
         return 0;
     }
 }
-int empty(){
+int isEmpty(){
     if(top == -1){
         return 1;
     }
@@ -22,7 +22,7 @@ int empty(){
 }
 void push(){
     int value;
-    if (full()){
+    if (isFull()){
         printf("\nStack Overflow!\n");
         return;
     }
@@ -34,7 +34,7 @@ void push(){
     stack[top] = value;
 }
 void pop(){
-    if(empty()) {
+    if(isEmpty()) {
         printf("\nStack is empty!\n");
         return;
     }
@@ -42,7 +42,7 @@ void pop(){
     top--;
 }
 void display(){
-    if(empty())
+    if(isEmpty())
     {
         printf("\nEmpty Stack\n");
         return;
